@@ -1,6 +1,6 @@
 # Python-DotEnv-Settings-Handler
 
-A Settings Handler to be used with [python-dotenv](https://github.com/theskumar/python-dotenv) to load and read all the settings from a Settings class.
+A Settings Handler using [python-dotenv](https://github.com/theskumar/python-dotenv) to load and read all the settings from a Settings class.
 
 Instead of loading the env variables as `os.getenv("MY_VAR")`, create a class with all your env variables, and load them as `settings.MY_VAR`.
 
@@ -9,11 +9,23 @@ Instead of loading the env variables as `os.getenv("MY_VAR")`, create a class wi
 - Python 3.x (tested on Python 3.7)
 - Libraries: python-dotenv, pydantic
 
+## Installing
+
+```bash
+pip install -U dotenv-settings-handler
+```
+
+```bash
+git clone https://github.com/David-Lor/Python-DotEnv-Settings-Handler
+cd Python-DotEnv-Settings-Handler
+python setup.py install
+```
+
 ## Changelog
 
 - 0.0.1 - Initial release
 
-## Example
+## Examples
 
 Start by creating a `.env` file, as you would usually do using python-dotenv, or define all or some of these variables as system environment variables.
 
@@ -24,9 +36,9 @@ DATABASE_PASSWORD=bar
 DATABASE_DB=mydb
 ```
 
-Then, create a new class inheriting from SettingsHandler:
-- SettingsHandler inherits from pydantic.BaseSettings, working in a similar manner as pydantic.BaseModel. Check [pydantic documentation](https://pydantic-docs.helpmanual.io/) to know more about it.
-- Basically you must define on your custom class the wanted ENV variables, which must have the same name as on the .env file.
+Then, create a new class inheriting from BaseSettingsHandler:
+- BaseSettingsHandler inherits from pydantic.BaseSettings, working in a similar manner as pydantic.BaseModel. Check [pydantic documentation](https://pydantic-docs.helpmanual.io/) to know more about it.
+- Basically you must define on your custom class the wanted ENV variables as fields (class attributes), which must have the same name as on the .env file.
 - You can define a default value to be used if a certain variable is not defined on the .env file (in the example: DATABASE_SERVER, DATABASE_PORT).
 - You should set the data type (str, int) on the values without default value (in the example: DATABASE_USER, DATABASE_PASSWORD, DATABASE_DB).
 - If an env variable without default value not exists, when creating an instance of MySettings() a pydantic exception will be raised, asking to fill a required class attribute.
@@ -34,9 +46,9 @@ Then, create a new class inheriting from SettingsHandler:
 ```python
 # settings.py
 
-from dotenv_settings_handler import SettingsHandler
+from dotenv_settings_handler import BaseSettingsHandler
 
-class MySettings(SettingsHandler):
+class MySettings(BaseSettingsHandler):
     DATABASE_SERVER = "127.0.0.1"
     DATABASE_PORT = 3306
     DATABASE_USER: str
