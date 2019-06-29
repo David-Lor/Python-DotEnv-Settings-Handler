@@ -7,13 +7,13 @@ with open("README.md") as f:
 
 setup(
     name="dotenv-settings-handler",
-    version="0.0.1",
+    version="0.0.2",
     description="Settings handler to load settings from a DotEnv file or system env variables, "
                 "using python-dotenv and pydantic.",
     author="David Lorenzo",
     url="https://github.com/David-Lor/Python-DotEnv-Settings-Handler",
     packages=("dotenv_settings_handler",),
-    install_requires=("python-dotenv", "pydantic"),
+    install_requires=("pydantic",),
     license="Apache 2.0",
     classifiers=(
         "Development Status :: 3 - Alpha",

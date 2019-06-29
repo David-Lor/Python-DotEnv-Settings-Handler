@@ -3,23 +3,17 @@
 
 # # Native # #
 import os
-from typing import Optional
 
 # # Installed # #
-# noinspection PyPackageRequirements
-import dotenv
 import pydantic
 
 
 class BaseSettingsHandler(pydantic.BaseSettings):
-    dotenv_path: Optional[str]
 
     class Config:
         env_prefix = ""  # Disable pydantic.BaseSettings ENV Prefix
 
     def __init__(self, **data):
-        dotenv.load_dotenv(dotenv_path=data.get("dotenv_path"))
-
         # Add env vars to **data
         for var_name in self.__fields__:
             var_value = os.getenv(var_name)
