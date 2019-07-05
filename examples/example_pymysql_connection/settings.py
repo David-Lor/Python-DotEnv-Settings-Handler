@@ -1,4 +1,6 @@
-import os
+"""Create and initialize a single custom settings class.
+"""
+
 from dotenv_settings_handler import BaseSettingsHandler
 from dotenv import load_dotenv
 

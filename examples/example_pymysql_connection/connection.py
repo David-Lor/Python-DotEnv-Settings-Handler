@@ -1,5 +1,5 @@
-"""This example is based on creating a connection to a MySQL database using pymysql, while the connection settings
-get loaded from a custom Settings class.
+"""This example is based on creating a connection to a MySQL database using pymysql,
+while the connection settings get loaded from a custom Settings class.
 """
 
 # noinspection PyUnresolvedReferences,PyPackageRequirements
