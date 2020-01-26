@@ -1,5 +1,7 @@
 # Python-DotEnv-Settings-Handler
 
+**IMPORTANT NOTE:** from [v1.4](https://pydantic-docs.helpmanual.io/changelog/#v14-2020-01-24) Pydantic natively features loading settings from dotenv files
+
 A Settings Handler using [python-dotenv](https://github.com/theskumar/python-dotenv) and/or system environment variables, to read all the settings from a Settings class based on [pydantic](https://github.com/samuelcolvin/pydantic/).
 
 Instead of loading the environment variables (from now on 'env vars') as `os.getenv("MY_VAR")`, create a class with all your env variables, and load them as `settings.MY_VAR`.
